@@ -1,0 +1,36 @@
+# node-migrations.yml
+rules:
+  - id: buffer-constructor-to-buffer-from
+    pattern: |
+      new Buffer($ARG)
+    replacement: |
+      Buffer.from($ARG)
+    message: "Replace deprecated Buffer constructor with Buffer.from"
+
+  - id: crypto-createcipher-to-createcipheriv
+    pattern: |
+      crypto.createCipher($ALG, $PWD)
+    replacement: |
+      crypto.createCipheriv($ALG, crypto.createHash('sha256').update($PWD).digest(), null)
+    message: "Replace deprecated crypto.createCipher with crypto.createCipheriv"
+
+  - id: fs-exists-to-fs-access
+    pattern: |
+      fs.exists($ARG, $CALLBACK)
+    replacement: |
+      fs.access($ARG, fs.constants.F_OK, $CALLBACK)
+    message: "Replace deprecated fs.exists with fs.access"
+
+  - id: url-parse-to-url
+    pattern: |
+      url.parse($ARG)
+    replacement: |
+      new URL($ARG)
+    message: "Replace deprecated url.parse with new URL()"
+
+  - id: cjs-to-esm
+    pattern: |
+      const $VAR = require($MODULE)
+    replacement: |
+      import $VAR from $MODULE
+    message: "Convert CommonJS require to ES Module import"
