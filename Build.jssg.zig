@@ -48,4 +48,3 @@ pub fn build(b: *std.Build) void {
     const fmt_step = b.addSystemCommand(&[_][]const u8{"zig", "fmt", "src"});
     b.step("format", "Format source code").dependOn(&fmt_step.step);
 }
-
