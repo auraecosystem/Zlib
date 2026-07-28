@@ -1,0 +1,5 @@
+# Single parameter:
+npx codemod workflow run -w workflow.yaml --param format=cjs
+
+# Multiple parameters:
+npx codemod workflow run -w workflow.yaml --param format=cjs --param strict=true
