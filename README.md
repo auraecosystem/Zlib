@@ -3,6 +3,34 @@
   alt="Node.js Userland Migrations"
 />
 
+# jssg
+
+![CI](https://github.com/auraecosystem/jssg/actions/workflows/ci.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![npm version](https://img.shields.io/npm/v/codemod)
+![Coverage Status](https://img.shields.io/codecov/c/github/auraecosystem/jssg)
+![GitHub issues](https://img.shields.io/github/issues/auraecosystem/jssg)
+![GitHub stars](https://img.shields.io/github/stars/auraecosystem/jssg?style=social)
+
+---
+
+### 🚀 Overview
+`jssg` is a toolkit of **codemods** designed to help developers migrate Node.js projects smoothly when adopting new features or handling breaking changes. It leverages **Codemod CLI**, **ast-grep**, and **tree-sitter grammars** to automate source transformations.
+
+### ✨ Features
+- Automated **CommonJS → ES Modules** conversions
+- AST‑driven transformations using **ast-grep**
+- Integration with **Codemod Registry**
+- Built with **Zig** for speed and portability
+- MIT licensed, open to community contributions
+
+### 📦 Getting Started
+```bash
+git clone https://github.com/auraecosystem/jssg
+cd jssg
+zig build
+npx codemod @nodejs/cjs-to-esm
+
 This repository contains codemods (automated migrations) for "userland" code. These are intended to facilitate adopting new features and upgrading source-code affected by breaking changes.
 
 ## Usage
